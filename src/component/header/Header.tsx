@@ -1,5 +1,5 @@
-import { Home, Trophy, Laptop, Mic, Tv } from "lucide-react"; 
-import { NavLink } from "react-router-dom";
+import { Home, Trophy, Laptop, Mic, Tv, CircleUserRound} from "lucide-react"; 
+import { NavLink, Link } from "react-router-dom";
 
 const Header = () => {
  const menu = [ 
@@ -19,7 +19,7 @@ const Header = () => {
             className="h-16" />
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex items-center gap-4">
           {menu.map((item) => (
              <NavLink to={item.href} className={({isActive}) => 
             `flex items-center gap-2 px-4 py-2 font-medium transition-all duration-200 ${ isActive ? activeStyle : defaultStyle }`}>
@@ -27,6 +27,9 @@ const Header = () => {
             <span>{item.label}</span>
             </NavLink>   
           ))}
+            <Link to="/login">
+              <CircleUserRound size={25} />
+            </Link>
         </div>
       </div>
     </header>
